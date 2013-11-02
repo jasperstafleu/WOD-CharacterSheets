@@ -1,0 +1,10 @@
+<h1>Choose a Sheet</h1>
+<ul>
+    <?php foreach ( $this->sheets as $sheet ) : ?>
+    <li>
+        <a href="/vampire/sheet/id/<?php echo $sheet->getId(); ?>">
+            <?php echo $sheet->getName(); ?>
+        </a>
+    </li>
+    <?php endforeach; ?>
+</ul>

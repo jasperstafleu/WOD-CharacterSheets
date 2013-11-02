@@ -1,0 +1,31 @@
+<h1>Vampire</h1>
+<form   method="<?php echo $this->form->getMethod(); ?>"
+        action="<?php echo $this->url(); ?>"
+        enctype="<?php echo $this->form->getEncType(); ?>"
+>
+    <?php foreach ( array('header-left', 'header-middle', 'header-right') as $loc ) : ?>
+    <dl class="dl-horizontal col-md-4">
+    <?php foreach ( $this->form->getSheetElements($loc) as $el ) echo $el; ?>
+    </dl>
+    <?php endforeach; ?>
+
+    <h2>Attributes</h2>
+    <?php foreach ( array('physical', 'social', 'mental') as $loc ) : ?>
+    <dl class="dl-horizontal col-md-4">
+    <?php foreach ( $this->form->getSheetElements($loc) as $el ) echo $el; ?>
+    </dl>
+    <?php endforeach; ?>
+
+    <h2>Abilities</h2>
+    <?php foreach ( array('talents', 'skills', 'knowledges') as $loc ) : ?>
+    <dl class="dl-horizontal col-md-4">
+    <?php foreach ( $this->form->getSheetElements($loc) as $el ) echo $el; ?>
+    </dl>
+    <?php endforeach; ?>
+
+
+    <?php echo $this->form->getSubmit(); ?>
+</form>
+<!--
+<?php echo $this->form; ?>
+-->
