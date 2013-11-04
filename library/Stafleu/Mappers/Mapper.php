@@ -13,6 +13,7 @@ class Mapper
      * Returns the DbTable
      *
      * @throws \Zend_Exception
+     * @return \Zend_Db_Table_Abstract
      */
     public function getDbTable()
     {
@@ -26,18 +27,39 @@ class Mapper
     /**
      * Saves the model (upsert)
      * @param \Stafleu\Models\Model $model
+     * @return \Stafleu\Models\Model
      */
     public function save(\Stafleu\Models\Model $model)
     {
         $data = $model->toArray();
+        foreach ( $data as $key => $value ) {
+            if ( is_array($value) ) {
+                unset($data[$key]);
+            }
+        } // foreach
 
-        if ( null === ($id = $model->getId()) ) {
+        $success = $model->getId();
+        $id = $model->getId();
+        if ( empty($id) ) {
             unset($data['id']);
             $this->getDbTable()->insert($data);
         } else {
             $this->getDbTable()->update($data, array('id = ?' => $id));
         }
+
+        return $model;
     } // save();
+
+    /**
+     * Removes the $model from DB
+     *
+     * @param \Stafleu\Models\Model $model
+     * @return number
+     */
+    public function remove(\Stafleu\Models\Model $model)
+    {
+        return $this->getDbTable()->delete('id = ' . $model->getId());
+    } // remove();
 
     /**
      * Retrieves the model with id $id from Db
@@ -48,6 +70,7 @@ class Mapper
     public function find($id)
     {
         $result = $this->getDbTable()->find($id);
+
         if ( !count($result) ) {
             return;
         }
@@ -63,9 +86,9 @@ class Mapper
      *
      * @return multitype:Stafleu\Models\Model
      */
-    public function fetchAll()
+    public function fetchAll(array $where = array())
     {
-        $resultSet = $this->getDbTable()->fetchAll();
+        $resultSet = $this->getDbTable()->fetchAll($where);
         $entries   = array();
 
         $class = 'Stafleu\\Models\\' . substr(get_called_class(), strlen(__NAMESPACE__) + 1);
@@ -75,5 +98,27 @@ class Mapper
 
         return $entries;
     } // fetchAll();
+
+    /**
+     * Returns the namespace of the called class
+     */
+    static public function getNamespace()
+    {
+        $parts = explode('\\', get_called_class());
+        array_pop($parts);
+        return implode('\\', $parts) . '\\';
+    } // getNamespace();
+
+    /**
+     * Returns an other mapper that is in the same namespace as this mapper
+     *
+     * @param string $cls
+     * @return \Stafleu\Mappers\Mapper
+     */
+    static public function getOtherMapper($cls)
+    {
+        $otherMapper = self::getNamespace() . $cls;
+        return new $otherMapper;
+    } // getOtherMapper();
 
 } // end class Sheet

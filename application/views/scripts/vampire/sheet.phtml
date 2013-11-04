@@ -2,6 +2,7 @@
 <form   method="<?php echo $this->form->getMethod(); ?>"
         action="<?php echo $this->url(); ?>"
         enctype="<?php echo $this->form->getEncType(); ?>"
+        class="max-rating-<?php echo $this->maxRating; ?> sheet vampire"
 >
     <?php foreach ( array('header-left', 'header-middle', 'header-right') as $loc ) : ?>
     <dl class="dl-horizontal col-md-4">
@@ -9,19 +10,92 @@
     </dl>
     <?php endforeach; ?>
 
-    <h2>Attributes</h2>
-    <?php foreach ( array('physical', 'social', 'mental') as $loc ) : ?>
-    <dl class="dl-horizontal col-md-4">
-    <?php foreach ( $this->form->getSheetElements($loc) as $el ) echo $el; ?>
-    </dl>
-    <?php endforeach; ?>
+    <section class="clearfix sheet-ratings" id="attributes-section">
+        <h2>Attributes</h2>
+        <?php foreach ( array('physical', 'social', 'mental') as $loc ) : ?>
+        <div class="col-md-4">
+            <h3><?php echo ucfirst($loc); ?></h3>
+            <dl class="dl-horizontal">
+            <?php foreach ( $this->form->getSheetElements($loc) as $el ) echo $el; ?>
+            </dl>
+        </div>
+        <?php endforeach; ?>
+    </section>
 
-    <h2>Abilities</h2>
-    <?php foreach ( array('talents', 'skills', 'knowledges') as $loc ) : ?>
-    <dl class="dl-horizontal col-md-4">
-    <?php foreach ( $this->form->getSheetElements($loc) as $el ) echo $el; ?>
-    </dl>
-    <?php endforeach; ?>
+    <section class="clearfix sheet-ratings" id="abilities-section">
+        <h2>Abilities</h2>
+        <?php foreach ( array('talents', 'skills', 'knowledges') as $loc ) : ?>
+        <div class="col-md-4">
+            <h3><?php echo ucfirst($loc); ?></h3>
+            <dl class="dl-horizontal">
+            <?php foreach ( $this->form->getSheetElements($loc) as $el ) echo $el; ?>
+            </dl>
+        </div>
+        <?php endforeach; ?>
+    </section>
+
+    <section class="clearfix sheet-ratings" id="advantages-section">
+        <h2>Advantages</h2>
+        <?php foreach ( array('disciplines', 'backgrounds', 'virtues') as $loc ) : ?>
+        <div class="col-md-4" id="<?php echo $loc; ?>-section">
+            <h3><?php echo ucfirst($loc); ?></h3>
+            <dl class="dl-horizontal">
+            <?php foreach ( $this->form->getSheetElements($loc) as $el ) echo $el; ?>
+            </dl>
+        </div>
+        <?php endforeach; ?>
+    </section>
+
+    <section class="clearfix sheet-ratings" id="rest-section">
+        <div class="col-md-4" id="meritsandflaws-section">
+            <h3>Merits &amp; Flaws</h3>
+            <h4>Merit</h4>
+            <dl class="dl-horizontal">
+            <?php foreach ( $this->form->getSheetElements('merits') as $el ) echo $el; ?>
+            </dl>
+            <h4>Flaw</h4>
+            <dl class="dl-horizontal">
+            <?php foreach ( $this->form->getSheetElements('flaws') as $el ) echo $el; ?>
+            </dl>
+        </div>
+
+        <div class="col-md-4">
+            <h3>Road</h3>
+            <dl class="dl-horizontal vampire-road">
+            <?php foreach ( $this->form->getSheetElements('road') as $el ) echo $el; ?>
+            <?php foreach ( $this->form->getSheetElements('roadRating') as $el ) echo $el; ?>
+            </dl>
+
+            <h3>Willpower</h3>
+            <dl class="dl-horizontal sheet-willpower">
+            <?php foreach ( $this->form->getSheetElements('willpower') as $el ) echo $el; ?>
+            </dl>
+
+            <h3>Bloodpool</h3>
+            <dl class="dl-horizontal vampire-bloodpool">
+            <?php foreach ( $this->form->getSheetElements('bloodpool') as $el ) echo $el; ?>
+            </dl>
+        </div>
+
+        <div class="col-md-4">
+            <h3>Health</h3>
+            <dl class="dl-horizontal sheet-health">
+            <?php foreach ( $this->form->getSheetElements('health') as $el ) echo $el; ?>
+            </dl>
+
+            <h3>Experience</h3>
+            <dl class="dl-horizontal sheet-experience">
+            <?php foreach ( $this->form->getSheetElements('experience') as $el ) echo $el; ?>
+            </dl>
+
+            <h3>Weakness</h3>
+            <dl class="dl-horizontal vampire-weakness">
+            <?php foreach ( $this->form->getSheetElements('weakness') as $el ) echo $el; ?>
+            </dl>
+
+        </div>
+
+    </section>
 
 
     <?php echo $this->form->getSubmit(); ?>

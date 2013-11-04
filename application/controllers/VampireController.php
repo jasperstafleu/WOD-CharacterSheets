@@ -4,7 +4,7 @@ class VampireController extends Zend_Controller_Action
     /**
      * The (default) mapper corresponding to this controller
      *
-     * @var Stafleu\Mappers\VampireSheet
+     * @var Stafleu\Mappers\Vampire\Sheet
      */
     protected $mapper;
 
@@ -14,7 +14,8 @@ class VampireController extends Zend_Controller_Action
      */
     public function init()
     {
-        $this->mapper = new \Stafleu\Mappers\VampireSheet();
+        $this->mapper = new \Stafleu\Mappers\Vampire\Sheet();
+        $this->view->headTitle('Character Sheets');
     } // init();
 
     /**
@@ -31,8 +32,19 @@ class VampireController extends Zend_Controller_Action
     public function sheetAction()
     {
         $model = $this->mapper->find($this->_getParam('id'));
-        $this->view->form = new Stafleu\Forms\VampireSheet;
+        if ( $this->getRequest()->isPost() ) {
+            $this->mapper->save($model->populate($this->getRequest()->getPost()));
+            if ( $model->getId() !== $this->getParam('id') ) {
+                return $this->_helper->redirector('/vampire/sheet/id/' . $model->getId());
+            }
+        }
+
+        $this->view->form = new Stafleu\Forms\Vampire\Sheet;
         $this->view->form->populate($model->toArray());
+        $this->view->maxRating = max(13 - $model->getGeneration(), 5);
+
+        $this->view->headLink()->appendStylesheet('/css/character-sheet.css');
+        $this->view->headLink()->appendStylesheet('/css/vampire-sheet.css');
     } // show();
 
 } // end class VampireController

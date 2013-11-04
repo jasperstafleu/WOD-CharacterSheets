@@ -17,11 +17,44 @@ abstract class Model
      */
     public function __construct(array $fields = array())
     {
-        foreach ( $fields as $field => $value ) {
-            $method = 'set' . ucfirst($field);
-            $this->$method($value);
-        } // foreach
+        $this->populate($fields);
     } // __construct();
+
+    /**
+     * Populates the model, overwriting when needed
+     *
+     * @param array $fields
+     * @return self
+     */
+    public function populate(array $fields = array())
+    {
+        foreach ( $fields as $field => $value ) {
+            try {
+                $method = 'set' . ucfirst($field);
+                $this->$method($value);
+            } catch ( \Zend_Exception $e ) {
+                // catch exception: non-existing field
+            }
+        } // foreach
+
+        return $this;
+    } // populate();
+
+    /**
+     * Returns this model as an array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        $ret = array();
+
+        foreach ( self::__getFields() as $field ) {
+            $ret[$field] = $this->$field;
+        } // foreach
+
+        return $ret;
+    } // toArray();
 
     /**
      * Magic caller
@@ -49,22 +82,6 @@ abstract class Model
 
         throw new \Zend_Exception('Unknown method ' . $method);
     } // __call();
-
-    /**
-     * Returns this model as an array
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        $ret = array();
-
-        foreach ( self::__getFields() as $field ) {
-            $ret[$field] = $this->$field;
-        } // foreach
-
-        return $ret;
-    } // toArray();
 
     /**
      * Returns the fields for this model

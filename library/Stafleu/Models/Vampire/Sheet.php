@@ -1,5 +1,5 @@
 <?php
-namespace Stafleu\Models;
+namespace Stafleu\Models\Vampire;
 
 /**
  * @method string getClan() getClan()
@@ -167,27 +167,65 @@ namespace Stafleu\Models;
  * @method Stafleu\Models\Sheet setTechnology() setTechnology(integer $technology)
  *         Sets the attribute Technology
  *
+ * @method array getDisciplines() getDisciplines()
+ *         Returns the free fields Disciplines
+ * @method Stafleu\Models\Sheet setDisciplines() setDisciplines(array $disciplines)
+ *         Sets the free fields Disciplines
+ *
+ * @method integer getConscience() getConscience()
+ *         Returns the virtue: Conscience
+ * @method Stafleu\Models\Sheet setConscience() setConscience(array $conscience)
+ *         Sets the virtue Conscience
+ *
+ * @method integer getSelfControl() getSelfControl()
+ *         Returns the virtue: SelfControl
+ * @method Stafleu\Models\Sheet setSelfControl() setSelfControl(array $selfControl)
+ *         Sets the virtue SelfControl
+ *
+ * @method integer getCourage() getCourage()
+ *         Returns the virtue: Courage
+ * @method Stafleu\Models\Sheet setCourage() setCourage(array $courage)
+ *         Sets the virtue Courage
+ *
+ * @method string getRoad() getRoad()
+ *         Returns the character's Road
+ * @method Stafleu\Models\Sheet setRoad() setRoad(string $road)
+ *         Sets the character's Road
+ *
+ * @method string getRoadRating() getRoadRating()
+ *         Returns the character's RoadRating
+ * @method Stafleu\Models\Sheet setRoadRating() setRoadRating(string $roadRating)
+ *         Sets the character's RoadRating
+ *
+ * @method integer getBloodpool() getBloodpool()
+ *         Returns the character's Bloodpool
+ * @method Stafleu\Models\Sheet setBloodpool() setBloodpool(int $bloodpool)
+ *         Sets the character's Bloodpool
+ *
+ * @method integer getWeakness() getWeakness()
+ *         Returns the character's Weakness
+ * @method Stafleu\Models\Sheet setWeakness() setWeakness(int $weakness)
+ *         Sets the character's Weakness
+ *
+ *
  * @author Jasper Stafleu
  */
-class VampireSheet extends Sheet
+class Sheet extends \Stafleu\Models\Sheet
 {
     /**
      * Character's clan
-     * TODO: Move to VampireSheet model
      * @var string
      */
     protected $clan = '';
 
     /**
      * Character's generation
-     * TODO: Move to VampireSheet model
      * @var integer [4...15]
      */
     protected $generation = 13;
 
     /**
      * Character's sire
-     * TODO: Move to VampireSheet model
      * @var string
      */
     protected $sire = '';
@@ -372,4 +410,54 @@ class VampireSheet extends Sheet
      */
     protected $technology = 0;
 
-} // end class VampireSheet
+    /**
+     * Disciplines
+     * @var array
+     */
+    protected $disciplines = array();
+
+    /**
+     * Virtue: conscience / conviction
+     * @var integer
+     */
+    protected $conscience = 1;
+
+    /**
+     * Virtue: self-control/instinct
+     * @var integer
+     */
+    protected $selfControl = 1;
+
+    /**
+     * Virtue: courage
+     * @var integer
+     */
+    protected $courage = 1;
+
+    /**
+     * Road
+     * @var string
+     */
+    protected $road = 'Humanity';
+
+    /**
+     * Road rating
+     * @var integer
+     */
+    protected $roadRating = 0;
+
+    /**
+     * Bloodpool rating
+     * @var integer
+     */
+    protected $bloodpool = 0;
+
+    /**
+     * Clan weakness
+     * @var string
+     */
+    protected $weakness = '';
+
+
+
+} // end class Sheet

@@ -1,0 +1,79 @@
+.sheet input[type="radio"] {
+	position: absolute;
+	left: -1000000px;
+}
+
+.sheet dt {
+	width: 160px;
+	text-align: left;
+}
+
+.sheet dd {
+	margin-left: 160px;
+}
+
+.sheet .sheet-ratings dd label {
+	display: inline-block;
+	border: 1px solid black;
+	height: 1em;
+	width: 1em;
+	color: transparent;
+	overflow: hidden;
+	margin-right: .2em;
+	cursor: pointer;
+	background: white;
+	border-radius: 1em;
+}
+
+.sheet .sheet-ratings dd label:hover {
+	background-color: #ddd;
+}
+
+.sheet.max-rating-5 .sheet-ratings dd label:nth-child(n+7),
+.sheet.max-rating-6 .sheet-ratings dd label:nth-child(n+8),
+.sheet.max-rating-7 .sheet-ratings dd label:nth-child(n+9),
+.sheet.max-rating-8 .sheet-ratings dd label:nth-child(n+10),
+.sheet.max-rating-9 .sheet-ratings dd label:nth-child(n+11) {
+	display: none;
+}
+
+.sheet .sheet-ratings .sheet-willpower dd label {
+	display: inline-block !important;
+}
+
+.sheet .sheet-ratings dd input[value="10"]:checked + .labels label:nth-child(-n+11),
+.sheet .sheet-ratings dd input[value="9"]:checked + input + .labels label:nth-child(-n+10),
+.sheet .sheet-ratings dd input[value="8"]:checked + input + input + .labels label:nth-child(-n+9),
+.sheet .sheet-ratings dd input[value="7"]:checked + input + input + input + .labels label:nth-child(-n+8),
+.sheet .sheet-ratings dd input[value="6"]:checked + input + input + input + input + .labels label:nth-child(-n+7),
+.sheet .sheet-ratings dd input[value="5"]:checked + input + input + input + input + input + .labels label:nth-child(-n+6),
+.sheet .sheet-ratings dd input[value="4"]:checked + input + input + input + input + input + input + .labels label:nth-child(-n+5),
+.sheet .sheet-ratings dd input[value="3"]:checked + input + input + input + input + input + input + input + .labels label:nth-child(-n+4),
+.sheet .sheet-ratings dd input[value="2"]:checked + input + input + input + input + input + input + input + input + .labels label:nth-child(-n+3),
+.sheet .sheet-ratings dd input[value="1"]:checked + input + input + input + input + input + input + input + input + input + .labels label:nth-child(-n+2) {
+	background: black;
+}
+
+.sheet .sheet-ratings dd input + .labels label:nth-child(1) {
+	border: none !important; 
+	color: #ddd;
+	background: transparent !important;
+	float: right;
+}
+.sheet .sheet-ratings dd input + .labels label:nth-child(1):before {
+	content: "\d7";
+}
+
+.sheet .sheet-ratings dd input + .labels label:nth-child(1):hover {
+	color: #333;
+}
+
+.sheet input[type=text] {
+	border-color: #ccc;
+	border-width: 0px 0px 1px;
+}
+
+.sheet #health-element label,
+.sheet #temporaryWillpower-element label {
+	border-radius: 0 !important;
+}
