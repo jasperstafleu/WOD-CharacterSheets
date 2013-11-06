@@ -8,7 +8,7 @@ class Rating extends \Zend_Form_Element_Radio
      */
     public function __construct($spec, $options = null)
     {
-        $scriptPath = __DIR__ . DIRECTORY_SEPARATOR . 'views';
+        $scriptPath = __DIR__ . DIRECTORY_SEPARATOR . 'views/';
         if ( !in_array($scriptPath, $this->getView()->getScriptPaths()) ) {
             $this->getView()->addScriptPath($scriptPath);
         }

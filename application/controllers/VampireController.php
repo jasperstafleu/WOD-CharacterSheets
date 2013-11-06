@@ -49,6 +49,7 @@ class VampireController extends Zend_Controller_Action
 
         $this->view->headLink()->appendStylesheet('/css/character-sheet.css');
         $this->view->headLink()->appendStylesheet('/css/vampire-sheet.css');
+        $this->view->headScript()->appendFile('/js/sheet.js');
     } // show();
 
 } // end class VampireController

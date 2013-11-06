@@ -1,16 +1,20 @@
 <dd id="<?php echo $this->element->getName(); ?>-element">
     <?php
+        $name = $this->element->getName();
+        if ( $belongs = $this->element->getBelongsTo() ) {
+            $name = $belongs . '['. $name . ']';
+        }
         foreach ( $this->element->getMultiOptions() as $value ) :
     ?><input type="radio"
         value="<?php echo $value?>"
-        name="<?php echo $this->element->getName(); ?>"
-        id="<?php echo $this->element->getName(); ?>-<?php echo $value; ?>"
+        name="<?php echo $name ?>"
+        id="<?php echo $name; ?>-<?php echo $value; ?>"
         <?php if ( $this->element->getValue() == $value ) : ?>checked="checked"<?php endif; ?>
     /><?php
         endforeach;
     ?><div class="labels"><?php
         foreach ( $this->element->getMultiOptions() as $value ) :
-    ?><label for="<?php echo $this->element->getName(); ?>-<?php echo $value; ?>">&nbsp;</label><?php
+    ?><label for="<?php echo $name; ?>-<?php echo $value; ?>">&nbsp;</label><?php
         endforeach;
     ?></div>
 </dd>
