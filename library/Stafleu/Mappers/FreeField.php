@@ -40,6 +40,14 @@ class FreeField extends \Stafleu\Mappers\Mapper
         return $sheet;
     } // saveFreeFields();
 
+    /**
+     * Adds a FreeField to a $sheet, with $type, $name and $value
+     *
+     * @param \Stafleu\Models\Sheet $sheet
+     * @param string $type
+     * @param string $name
+     * @param intger $value
+     */
     public function addFreeField(\Stafleu\Models\Sheet $sheet, $type, $name, $value)
     {
         $ff = str_replace('Mapper', 'Model', self::getNamespace()) . 'FreeField';

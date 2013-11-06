@@ -303,7 +303,6 @@ abstract class Sheet extends Model
      */
     protected $experienceSpent = 0;
 
-
     /**
      * Adds Stafleu\Models\FreeField objects to this object
      * @param array $fields

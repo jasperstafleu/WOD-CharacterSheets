@@ -86,9 +86,9 @@ class Mapper
      *
      * @return multitype:Stafleu\Models\Model
      */
-    public function fetchAll(array $where = array())
+    public function fetchAll(array $where = array(), $order = null)
     {
-        $resultSet = $this->getDbTable()->fetchAll($where);
+        $resultSet = $this->getDbTable()->fetchAll($where, $order);
         $entries   = array();
 
         $class = 'Stafleu\\Models\\' . substr(get_called_class(), strlen(__NAMESPACE__) + 1);

@@ -26,20 +26,11 @@ class Sheet extends Mapper
         $ret = parent::find($id);
 
         // add the free fields
-        $fields = self::getOtherMapper('FreeField')->fetchAll(array('sheet' => $id));
+        $fields = self::getOtherMapper('FreeField')
+                ->fetchAll(array('sheet' => $id), 'name');
         $ret->addFreeFields($fields);
 
         return $ret;
     } // find();
-
-    /**
-     * (non-PHPdoc)
-     * @see \Stafleu\Mappers\Mapper::fetchAll()
-     */
-    public function fetchAll(array $where = array())
-    {
-        $ret = parent::fetchAll($where);
-        return $ret;
-    } // fetchAll();
 
 } // end class Sheet

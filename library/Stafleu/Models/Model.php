@@ -97,4 +97,5 @@ abstract class Model
         }
         return self::$__protectedFields[$cls];
     } // __getFields();
+
 } // end class Model
