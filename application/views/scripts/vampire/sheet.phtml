@@ -2,7 +2,7 @@
 <form   method="<?php echo $this->form->getMethod(); ?>"
         action="<?php echo $this->url(); ?>"
         enctype="<?php echo $this->form->getEncType(); ?>"
-        class="max-rating-<?php echo $this->maxRating; ?> sheet vampire"
+        class="max-rating-<?php echo $this->maxRating; ?> max-pool-<?php echo $this->maxPool ?> sheet vampire"
 >
     <?php foreach ( array('header-left', 'header-middle', 'header-right') as $loc ) : ?>
     <dl class="dl-horizontal col-md-4">

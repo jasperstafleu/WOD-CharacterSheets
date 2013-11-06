@@ -29,4 +29,68 @@
 .sheet #bloodpool-element label {
 	border-radius: 0 !important;
 	display: inline-block !important;
+	float: left;
+}
+
+.sheet #bloodpool-element label[for="bloodpool-0"] {
+	float: right;
+}
+
+.sheet #bloodpool-element label:nth-child(10n + 12) {
+	clear: both;
+}
+
+.sheet.max-pool-10 #bloodpool-element label:nth-child(n+12),
+.sheet.max-pool-11 #bloodpool-element label:nth-child(n+13),
+.sheet.max-pool-12 #bloodpool-element label:nth-child(n+14),
+.sheet.max-pool-13 #bloodpool-element label:nth-child(n+15),
+.sheet.max-pool-14 #bloodpool-element label:nth-child(n+16),
+.sheet.max-pool-15 #bloodpool-element label:nth-child(n+17),
+.sheet.max-pool-20 #bloodpool-element label:nth-child(n+22),
+.sheet.max-pool-30 #bloodpool-element label:nth-child(n+32),
+.sheet.max-pool-40 #bloodpool-element label:nth-child(n+42) {
+	display: none !important;
+}
+
+.sheet #bloodpool-element input[value="11"]:checked ~ .labels label:nth-child(-n+12),
+.sheet #bloodpool-element input[value="12"]:checked ~ .labels label:nth-child(-n+13),
+.sheet #bloodpool-element input[value="13"]:checked ~ .labels label:nth-child(-n+14),
+.sheet #bloodpool-element input[value="14"]:checked ~ .labels label:nth-child(-n+15),
+.sheet #bloodpool-element input[value="15"]:checked ~ .labels label:nth-child(-n+16),
+.sheet #bloodpool-element input[value="16"]:checked ~ .labels label:nth-child(-n+17),
+.sheet #bloodpool-element input[value="17"]:checked ~ .labels label:nth-child(-n+18),
+.sheet #bloodpool-element input[value="18"]:checked ~ .labels label:nth-child(-n+19),
+.sheet #bloodpool-element input[value="19"]:checked ~ .labels label:nth-child(-n+20),
+.sheet #bloodpool-element input[value="20"]:checked ~ .labels label:nth-child(-n+21),
+.sheet #bloodpool-element input[value="21"]:checked ~ .labels label:nth-child(-n+22),
+.sheet #bloodpool-element input[value="22"]:checked ~ .labels label:nth-child(-n+23),
+.sheet #bloodpool-element input[value="23"]:checked ~ .labels label:nth-child(-n+24),
+.sheet #bloodpool-element input[value="24"]:checked ~ .labels label:nth-child(-n+25),
+.sheet #bloodpool-element input[value="25"]:checked ~ .labels label:nth-child(-n+26),
+.sheet #bloodpool-element input[value="26"]:checked ~ .labels label:nth-child(-n+27),
+.sheet #bloodpool-element input[value="27"]:checked ~ .labels label:nth-child(-n+28),
+.sheet #bloodpool-element input[value="28"]:checked ~ .labels label:nth-child(-n+29),
+.sheet #bloodpool-element input[value="29"]:checked ~ .labels label:nth-child(-n+30),
+.sheet #bloodpool-element input[value="30"]:checked ~ .labels label:nth-child(-n+31),
+.sheet #bloodpool-element input[value="31"]:checked ~ .labels label:nth-child(-n+32),
+.sheet #bloodpool-element input[value="32"]:checked ~ .labels label:nth-child(-n+33),
+.sheet #bloodpool-element input[value="33"]:checked ~ .labels label:nth-child(-n+34),
+.sheet #bloodpool-element input[value="34"]:checked ~ .labels label:nth-child(-n+35),
+.sheet #bloodpool-element input[value="35"]:checked ~ .labels label:nth-child(-n+36),
+.sheet #bloodpool-element input[value="36"]:checked ~ .labels label:nth-child(-n+37),
+.sheet #bloodpool-element input[value="37"]:checked ~ .labels label:nth-child(-n+38),
+.sheet #bloodpool-element input[value="38"]:checked ~ .labels label:nth-child(-n+39),
+.sheet #bloodpool-element input[value="39"]:checked ~ .labels label:nth-child(-n+40),
+.sheet #bloodpool-element input[value="40"]:checked ~ .labels label:nth-child(-n+41),
+.sheet #bloodpool-element input[value="41"]:checked ~ .labels label:nth-child(-n+42),
+.sheet #bloodpool-element input[value="42"]:checked ~ .labels label:nth-child(-n+43),
+.sheet #bloodpool-element input[value="43"]:checked ~ .labels label:nth-child(-n+44),
+.sheet #bloodpool-element input[value="44"]:checked ~ .labels label:nth-child(-n+45),
+.sheet #bloodpool-element input[value="45"]:checked ~ .labels label:nth-child(-n+46),
+.sheet #bloodpool-element input[value="46"]:checked ~ .labels label:nth-child(-n+47),
+.sheet #bloodpool-element input[value="47"]:checked ~ .labels label:nth-child(-n+48),
+.sheet #bloodpool-element input[value="48"]:checked ~ .labels label:nth-child(-n+49),
+.sheet #bloodpool-element input[value="49"]:checked ~ .labels label:nth-child(-n+50),
+.sheet #bloodpool-element input[value="50"]:checked ~ .labels label:nth-child(-n+51) {
+	background: black;
 }

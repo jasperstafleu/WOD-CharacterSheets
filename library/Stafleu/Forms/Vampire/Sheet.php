@@ -62,7 +62,11 @@ class Sheet extends \Stafleu\Forms\Sheet
         $this->addSheetElements('experience', array('experience', 'experienceSpent'), '\Zend_Form_Element_Text');
 
         $bloodpool = $this->getSheetElements('bloodpool');
-        $bloodpool[0]->setMultiOptions(array(0,1,2,3,4,5,6,7,8,9,10));
+        $pool = array();
+        for ( $it = 0; $it <= 50; $it++ ) {
+            $pool []= $it;
+        } // for
+        $bloodpool[0]->setMultiOptions($pool);
     } // init();
 
 } // end class Sheet

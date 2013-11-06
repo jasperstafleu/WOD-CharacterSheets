@@ -25,7 +25,7 @@
 	border-radius: 1em;
 }
 
-.sheet .sheet-ratings dd label:hover {
+.sheet .sheet-ratings dd:hover label:hover {
 	background-color: #ddd;
 }
 
@@ -41,16 +41,16 @@
 	display: inline-block !important;
 }
 
-.sheet .sheet-ratings dd input[value="10"]:checked + .labels label:nth-child(-n+11),
-.sheet .sheet-ratings dd input[value="9"]:checked + input + .labels label:nth-child(-n+10),
-.sheet .sheet-ratings dd input[value="8"]:checked + input + input + .labels label:nth-child(-n+9),
-.sheet .sheet-ratings dd input[value="7"]:checked + input + input + input + .labels label:nth-child(-n+8),
-.sheet .sheet-ratings dd input[value="6"]:checked + input + input + input + input + .labels label:nth-child(-n+7),
-.sheet .sheet-ratings dd input[value="5"]:checked + input + input + input + input + input + .labels label:nth-child(-n+6),
-.sheet .sheet-ratings dd input[value="4"]:checked + input + input + input + input + input + input + .labels label:nth-child(-n+5),
-.sheet .sheet-ratings dd input[value="3"]:checked + input + input + input + input + input + input + input + .labels label:nth-child(-n+4),
-.sheet .sheet-ratings dd input[value="2"]:checked + input + input + input + input + input + input + input + input + .labels label:nth-child(-n+3),
-.sheet .sheet-ratings dd input[value="1"]:checked + input + input + input + input + input + input + input + input + input + .labels label:nth-child(-n+2) {
+.sheet .sheet-ratings dd input[value="10"]:checked ~ .labels label:nth-child(-n+11),
+.sheet .sheet-ratings dd input[value="9"]:checked ~ .labels label:nth-child(-n+10),
+.sheet .sheet-ratings dd input[value="8"]:checked ~ .labels label:nth-child(-n+9),
+.sheet .sheet-ratings dd input[value="7"]:checked ~ .labels label:nth-child(-n+8),
+.sheet .sheet-ratings dd input[value="6"]:checked ~ .labels label:nth-child(-n+7),
+.sheet .sheet-ratings dd input[value="5"]:checked ~ .labels label:nth-child(-n+6),
+.sheet .sheet-ratings dd input[value="4"]:checked ~ .labels label:nth-child(-n+5),
+.sheet .sheet-ratings dd input[value="3"]:checked ~ .labels label:nth-child(-n+4),
+.sheet .sheet-ratings dd input[value="2"]:checked ~ .labels label:nth-child(-n+3),
+.sheet .sheet-ratings dd input[value="1"]:checked ~ .labels label:nth-child(-n+2) {
 	background: black;
 }
 
