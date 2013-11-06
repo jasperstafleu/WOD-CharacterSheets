@@ -31,12 +31,21 @@ class FreeField extends \Stafleu\Mappers\Mapper
                         continue 2;
                     }
                 } // foreach
-            } // foreach
 
+                // field does not yet exist: add it
+                $this->addFreeField($sheet, $field, $name, $value);
+            } // foreach
         } // foreach
 
         return $sheet;
     } // saveFreeFields();
+
+    public function addFreeField(\Stafleu\Models\Sheet $sheet, $type, $name, $value)
+    {
+        $ff = str_replace('Mapper', 'Model', self::getNamespace()) . 'FreeField';
+        $ff = new $ff(array('name' => $name, 'value' => $value, 'sheet' => $sheet->getId(), 'type' => $type));
+        $this->save($ff);
+    } // addFreeField();
 
     /**
      * (non-PHPdoc)

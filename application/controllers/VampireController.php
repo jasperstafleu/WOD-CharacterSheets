@@ -39,17 +39,26 @@ class VampireController extends Zend_Controller_Action
             }
         }
 
-        $this->view->form = new Stafleu\Forms\Vampire\Sheet;
-        $this->view->form->populate($model->toArray());
-        $this->view->maxRating = max(13 - $model->getGeneration(), 5);
+        if ( !empty($_SERVER['HTTP_X_REQUESTED_WITH'])
+                && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'
+        ) {
+            // AJAX request: return JSON
+            $this->_helper->json($model);
+        } else {
+            $this->view->form = new Stafleu\Forms\Vampire\Sheet;
+            $this->view->form->populate($model->toArray());
+            $this->view->maxRating = max(13 - $model->getGeneration(), 5);
 
-        $poolsizes = array(4 => 50, 5 => 40, 6 => 30, 7 => 20, 8 => 15, 9 => 14,
-                10 => 13, 11 => 12, 12 => 11, 13 => 10);
-        $this->view->maxPool = $poolsizes[$model->getGeneration()];
+            $poolsizes = array(4 => 50, 5 => 40, 6 => 30, 7 => 20, 8 => 15, 9 => 14,
+                    10 => 13, 11 => 12, 12 => 11, 13 => 10);
+            $this->view->maxPool = $poolsizes[$model->getGeneration()];
 
-        $this->view->headLink()->appendStylesheet('/css/character-sheet.css');
-        $this->view->headLink()->appendStylesheet('/css/vampire-sheet.css');
-        $this->view->headScript()->appendFile('/js/sheet.js');
+            $this->view->headLink()->appendStylesheet('/css/character-sheet.css');
+            $this->view->headLink()->appendStylesheet('/css/vampire-sheet.css');
+            $this->view->headScript()->appendFile('/js/sheet.js');
+        }
+
+
     } // show();
 
 } // end class VampireController
