@@ -1,5 +1,5 @@
 .sheet .sheet-ratings .vampire-road dd label {
-	display: inline-block !important;
+	visibility: visible !important;	
 }
 
 #weakness-element {
@@ -13,22 +13,22 @@
 }
 
 .sheet .sheet-ratings #health-element label {
-	display: none;
+	visibility: hidden;
 }
 .sheet .sheet-ratings #meritsandflaws-section label:nth-child(-n+8),
 .sheet .sheet-ratings #health-element label:nth-child(-n+8) {
-	display: inline-block !important;
+	visibility: visible !important;
 }
 
 .sheet .sheet-ratings #virtues-section dd label:nth-child(n+7),
 .sheet .sheet-ratings #meritsandflaws-section label:nth-child(n+9),
 .sheet .sheet-ratings #backgrounds-section dd label:nth-child(n+7) {
-	display: none !important;
+	visibility: hidden;
 }
 
 .sheet #bloodpool-element label {
 	border-radius: 0 !important;
-	display: inline-block !important;
+	visibility: visible !important;
 	float: left;
 }
 

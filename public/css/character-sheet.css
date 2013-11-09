@@ -44,11 +44,11 @@
 .sheet.max-rating-7 .sheet-ratings dd label:nth-child(n+9),
 .sheet.max-rating-8 .sheet-ratings dd label:nth-child(n+10),
 .sheet.max-rating-9 .sheet-ratings dd label:nth-child(n+11) {
-	display: none;
+	visibility: hidden;
 }
 
 .sheet .sheet-ratings .sheet-willpower dd label {
-	display: inline-block !important;
+	visibility: visible !important;
 }
 
 .sheet .sheet-ratings dd input[value="10"]:checked ~ .labels label:nth-child(-n+11),
@@ -95,6 +95,7 @@
 	border-radius: 0;
 	padding-bottom: 0;
 	text-align: right;
+	margin-right: 2em;
 }
 
 .sheet input[type=text]:focus {
