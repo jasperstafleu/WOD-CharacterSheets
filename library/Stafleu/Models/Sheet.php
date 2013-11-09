@@ -132,10 +132,10 @@ namespace Stafleu\Models;
  * @method Stafleu\Models\Sheet setExperience() setExperience(int $experience)
  *         Sets the character's Experience
  *
- * @method integer getExperienceSpent() getExperienceSpent()
- *         Returns the character's ExperienceSpent
- * @method Stafleu\Models\Sheet setExperienceSpent() setExperienceSpent(int $experienceSpent)
- *         Sets the character's ExperienceSpent
+ * @method integer getSpentExperience() getSpentExperience()
+ *         Returns the character's SpentExperience
+ * @method Stafleu\Models\Sheet setSpentExperience() setSpentExperience(int $spentExperience)
+ *         Sets the character's SpentExperience
  *
  * @author Jasper Stafleu
  */
@@ -301,7 +301,7 @@ abstract class Sheet extends Model
      * Experience amount spent
      * @var integer
      */
-    protected $experienceSpent = 0;
+    protected $spentExperience = 0;
 
     /**
      * Adds Stafleu\Models\FreeField objects to this object

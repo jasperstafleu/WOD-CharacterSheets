@@ -59,7 +59,7 @@ class Sheet extends \Stafleu\Forms\Sheet
         $this->addSheetElements('bloodpool', array('bloodpool'));
         $this->addSheetElements('health', array('health'));
         $this->addSheetElements('weakness', array('weakness'), '\Zend_Form_Element_TextArea');
-        $this->addSheetElements('experience', array('experience', 'experienceSpent'), '\Zend_Form_Element_Text');
+        $this->addSheetElements('experience', array('experience', 'spentExperience'), '\Zend_Form_Element_Text');
 
         $bloodpool = $this->getSheetElements('bloodpool');
         $pool = array();
