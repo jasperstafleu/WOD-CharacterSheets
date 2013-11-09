@@ -59,5 +59,27 @@ class VampireController extends Zend_Controller_Action
         }
     } // show();
 
+    /**
+     * Adds a free field to a sheet
+     */
+    public function addFreeFieldAction()
+    {
+        if ( !($sheet = $this->mapper->find($this->_getParam('sheet'))) ) {
+            throw new Zend_Exception('No such sheet found');
+        }
+
+        $ff = new Stafleu\Models\Vampire\FreeField(array(
+           'sheet'      => $sheet->getId()
+           , 'type'     => $this->_getParam('type')
+           , 'name'     => $this->_getParam('name')
+           , 'value'    => 1
+        ));
+
+        $ffMapper = new Stafleu\Mappers\Vampire\FreeField;
+        $ffMapper->save($ff);
+
+        $this->_helper->json($ff);
+    } // addFreeFieldAction();
+
 } // end class VampireController
 

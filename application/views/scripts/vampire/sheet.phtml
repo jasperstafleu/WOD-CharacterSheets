@@ -26,7 +26,7 @@
         <h2>Abilities</h2>
         <?php foreach ( array('talents', 'skills', 'knowledges') as $loc ) : ?>
         <div class="col-md-4">
-            <h3><?php echo ucfirst($loc); ?></h3>
+            <h3><?php echo ucfirst($loc); ?> <a href="#" data-add-free-field="<?php echo $loc?>"></a></h3>
             <dl class="dl-horizontal">
             <?php foreach ( $this->form->getSheetElements($loc) as $el ) echo $el; ?>
             </dl>
@@ -38,7 +38,7 @@
         <h2>Advantages</h2>
         <?php foreach ( array('disciplines', 'backgrounds', 'virtues') as $loc ) : ?>
         <div class="col-md-4" id="<?php echo $loc; ?>-section">
-            <h3><?php echo ucfirst($loc); ?></h3>
+            <h3><?php echo ucfirst($loc); ?> <a href="#" data-add-free-field="<?php echo $loc?>"></a></h3>
             <dl class="dl-horizontal">
             <?php foreach ( $this->form->getSheetElements($loc) as $el ) echo $el; ?>
             </dl>
@@ -49,11 +49,15 @@
     <section class="clearfix sheet-ratings" id="rest-section">
         <div class="col-md-4" id="meritsandflaws-section">
             <h3>Merits &amp; Flaws</h3>
-            <h4>Merit</h4>
+
+            <h4>Merit <a href="#" data-add-free-field="merit"></a></h4>
+
             <dl class="dl-horizontal">
             <?php foreach ( $this->form->getSheetElements('merits') as $el ) echo $el; ?>
             </dl>
-            <h4>Flaw</h4>
+
+            <h4>Flaw <a href="#" data-add-free-field="flaw"></a></h4>
+
             <dl class="dl-horizontal">
             <?php foreach ( $this->form->getSheetElements('flaws') as $el ) echo $el; ?>
             </dl>

@@ -21,7 +21,7 @@ class FreeField extends \Stafleu\Mappers\Mapper
             foreach ( $arr as $name => $value ) {
                 foreach ( $existingFields as $key => $existingField ) {
                     if ( $existingField->getType() === $field
-                            && $existingField->getName() === $name
+                            && $existingField->getName() == $name
                     ) {
                         unset($existingFields[$key]);
                         $existingField->setValue($value);

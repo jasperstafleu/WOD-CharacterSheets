@@ -71,8 +71,17 @@
 	float: right;
 	margin-left: .5em;
 }
+
 .sheet .sheet-ratings dd input + .labels label:nth-child(1):before {
 	content: "\d7";
+}
+
+.sheet #attributes-section input + .labels label:nth-child(1) {
+	visibility: hidden;
+}
+
+.sheet #attributes-section #appearance-element input + .labels label:nth-child(1) {
+	visibility: visible;
 }
 
 .sheet .sheet-ratings dd input + .labels label:nth-child(1):hover {
@@ -84,12 +93,27 @@
 	border-width: 0px 0px 1px;
 	float: right;
 	border-radius: 0;
-	padding-bottom: 0;	
+	padding-bottom: 0;
+	text-align: right;
+}
+
+.sheet input[type=text]:focus {
+	text-align: left;
 }
 
 .sheet #health-element label,
 .sheet #temporaryWillpower-element label {
 	border-radius: 0 !important;
+}
+
+.sheet a[data-add-free-field] {
+	font-size: 12pt;
+	margin-bottom: 100%;
+	vertical-align: super;
+}
+	
+.sheet a[data-add-free-field]:before {
+	content: "+";
 }
 
 @media only screen 
