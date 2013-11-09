@@ -53,9 +53,9 @@ class VampireController extends Zend_Controller_Action
                     10 => 13, 11 => 12, 12 => 11, 13 => 10);
             $this->view->maxPool = $poolsizes[$model->getGeneration()];
 
-            $this->view->headLink()->appendStylesheet('/css/character-sheet.css');
-            $this->view->headLink()->appendStylesheet('/css/vampire-sheet.css');
-            $this->view->headScript()->appendFile('/js/sheet.js');
+            $this->view->headLink()->appendStylesheet($this->view->baseUrl('/css/character-sheet.css'));
+            $this->view->headLink()->appendStylesheet($this->view->baseUrl('/css/vampire-sheet.css'));
+            $this->view->headScript()->appendFile($this->view->baseUrl('/js/sheet.js'));
         }
     } // show();
 

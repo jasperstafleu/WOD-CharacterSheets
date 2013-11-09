@@ -2,7 +2,7 @@
 <ul>
     <?php foreach ( $this->sheets as $sheet ) : ?>
     <li>
-        <a href="/vampire/sheet/id/<?php echo $sheet->getId(); ?>">
+        <a href="<?php echo $this->baseUrl('/vampire/sheet/id/' . $sheet->getId()); ?>">
             <?php echo $sheet->getName(); ?>
         </a>
     </li>

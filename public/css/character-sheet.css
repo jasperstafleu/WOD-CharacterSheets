@@ -4,12 +4,22 @@
 }
 
 .sheet dt {
-	width: 160px;
+	width: calc(160px - .5em);
 	text-align: left;
+}
+
+.sheet dt label {
+	overflow: hidden;
+	width: 100%;
+	text-overflow: ellipsis;
 }
 
 .sheet dd {
 	margin-left: 160px;
+}
+
+.sheet .labels {
+	float: right;
 }
 
 .sheet .sheet-ratings dd label {
@@ -59,6 +69,7 @@
 	color: #ddd;
 	background: transparent !important;
 	float: right;
+	margin-left: .5em;
 }
 .sheet .sheet-ratings dd input + .labels label:nth-child(1):before {
 	content: "\d7";
@@ -71,9 +82,32 @@
 .sheet input[type=text] {
 	border-color: #ccc;
 	border-width: 0px 0px 1px;
+	float: right;
+	border-radius: 0;
+	padding-bottom: 0;	
 }
 
 .sheet #health-element label,
 .sheet #temporaryWillpower-element label {
 	border-radius: 0 !important;
 }
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+	
+	.sheet dt {
+		width: calc(110px - .5em);
+		text-align: left;
+	}
+	
+	.sheet dd {
+		margin-left: 110px;
+	}
+	
+}
+
+
+
+

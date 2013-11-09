@@ -10,6 +10,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $autoloader->registerNamespace('Stafleu\\');
     } // _initStafleuLibrary();
 
+    /**
+     * Initializer for the ZEND cache
+     */
     protected function _initCache()
     {
         // First, set up the Cache
@@ -28,4 +31,18 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         Zend_Db_Table_Abstract::setDefaultMetadataCache($cache);
     } // _initCache();
-}
+
+    /**
+     * Sets the baseURL, if required
+     */
+    protected function _initBaseUrl()
+    {
+        $frontController = Zend_Controller_Front::getInstance();
+        $toStripForSubfolderOfLocalhost = '/' . basename(dirname(APPLICATION_PATH));
+
+        if ( stripos($_SERVER['REQUEST_URI'], $toStripForSubfolderOfLocalhost) === 0 ) {
+            $frontController->setBaseUrl($toStripForSubfolderOfLocalhost);
+        }
+    } // _initBaseUrl();
+
+} // end class Bootstrap
