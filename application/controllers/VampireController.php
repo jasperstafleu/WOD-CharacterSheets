@@ -24,6 +24,22 @@ class VampireController extends Zend_Controller_Action
     public function indexAction()
     {
         $this->view->sheets = $this->mapper->fetchAll();
+
+        if ( $this->getRequest()->isPost() ) {
+            $sheet = new Stafleu\Models\Vampire\Sheet(array('name' => $this->getParam('name')));
+            $this->mapper->save($sheet);
+        }
+
+        $this->view->form = new Zend_Form();
+
+        $el = new Zend_Form_Element_Text('name', array('placeholder' => 'Add sheet'));
+        $el->removeDecorator('HtmlTag')->removeDecorator('Label');
+        $this->view->form->addElement($el);
+
+        $el = new Zend_Form_Element_Submit('Add', array('class' => 'btn btn-sm btn-primary'));
+        $el->removeDecorator('DtDdWrapper');
+        $this->view->form->addElement($el);
+        ;
     } // indexAction();
 
     /**

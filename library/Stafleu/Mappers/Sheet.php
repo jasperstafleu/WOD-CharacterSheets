@@ -27,7 +27,8 @@ class Sheet extends Mapper
 
         // add the free fields
         $fields = self::getOtherMapper('FreeField')
-                ->fetchAll(array('sheet' => $id), 'name');
+                ->fetchAll(array('sheet = ?' => $id), 'name');
+
         $ret->addFreeFields($fields);
 
         return $ret;

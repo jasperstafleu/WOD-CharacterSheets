@@ -50,13 +50,13 @@
         <div class="col-md-4" id="meritsandflaws-section">
             <h3>Merits &amp; Flaws</h3>
 
-            <h4>Merit <a href="#" data-add-free-field="merit"></a></h4>
+            <h4>Merit <a href="#" data-add-free-field="merits"></a></h4>
 
             <dl class="dl-horizontal">
             <?php foreach ( $this->form->getSheetElements('merits') as $el ) echo $el; ?>
             </dl>
 
-            <h4>Flaw <a href="#" data-add-free-field="flaw"></a></h4>
+            <h4>Flaw <a href="#" data-add-free-field="flaws"></a></h4>
 
             <dl class="dl-horizontal">
             <?php foreach ( $this->form->getSheetElements('flaws') as $el ) echo $el; ?>

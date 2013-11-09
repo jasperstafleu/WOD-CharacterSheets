@@ -110,6 +110,12 @@
 	font-size: 12pt;
 	margin-bottom: 100%;
 	vertical-align: super;
+	color: #ddd;
+	text-decoration: none;
+}
+
+.sheet a[data-add-free-field]:hover {
+	color: #333;
 }
 	
 .sheet a[data-add-free-field]:before {

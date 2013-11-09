@@ -7,4 +7,9 @@
         </a>
     </li>
     <?php endforeach; ?>
+    <li>
+        <form method="POST">
+            <?php echo $this->form->getElement('name'), $this->form->getElement('Add'); ?>
+        </form>
+    </li>
 </ul>

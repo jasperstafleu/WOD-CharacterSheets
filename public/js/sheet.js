@@ -40,13 +40,15 @@
 			, sheet = controller[controller.length - 1]
 		;
 		
-		controller = controller[controller.length - 4];
-		$.post(
-				($('base').attr('href') || '') + '/' + controller + '/add-free-field'
-				, {type: type, name: name, sheet: sheet}
-		).done(function() {
-			location.reload();
-		});		
+		if ( name.length ) {
+			controller = controller[controller.length - 4];
+			$.post(
+					($('base').attr('href') || '') + '/' + controller + '/add-free-field'
+					, {type: type, name: name, sheet: sheet}
+			).done(function() {
+				location.reload();
+			});
+		}
 		
 	} // _addFreeField();
 	
